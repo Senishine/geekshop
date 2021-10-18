@@ -35,6 +35,6 @@ def upload(request):
 
 
 def load_products(file_name) -> list:
-    with open(file_name, "r") as read_file:
+    with open(file_name, mode="r", encoding="utf-8") as read_file:
         data = json.load(read_file)
     return data['products']

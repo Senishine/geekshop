@@ -82,11 +82,11 @@ html, body {
 }
 .basket {
 	display: block;
-	width: 23px;
-	height: 23px;	
+	width: 35px;
+	height: 35px;
 	background-image: url(img/basket.png);
 	position: absolute;
-	top: 63px;
+	top: 57px;
 	left: 1210px;
 }
 

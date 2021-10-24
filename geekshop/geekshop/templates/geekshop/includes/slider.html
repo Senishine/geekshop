@@ -2,7 +2,7 @@
     <div class="header clearfix">
         <a href="/" class="logo"></a>
         <ul class="menu">
-            <li><a href="{% url 'main' %}" class="active">домой</a></li>
+            <li><a href="{% url 'main' %}" class="{% if request == '/'%}active{% endif %}">домой</a></li>
             <li><a href="{% url 'products:main' %}">продукты</a></li>
             <li><a href="{% url 'contacts' %}">контакты</a></li>
             {% if user.is_authenticated %}
@@ -11,6 +11,14 @@
                         {{ user.first_name|default:'Пользователь' }}
                     </a>
                 </li>
+                {% if basket %}
+                    <li><a href="{% url 'basket:view' %}">Корзина</a>
+                        <span>
+                            ({{ basket|length }} шт.)
+                        </span>
+                    </li>
+
+                {% endif %}
             {% endif %}
             <li>
                 {% if user.is_authenticated %}

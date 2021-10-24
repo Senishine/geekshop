@@ -8,6 +8,7 @@ from mainapp.models import Product
 def basket(request):
     basket = Basket.objects.filter(user=request.user)
     context = {
+        'title': 'Корзина',
         'basket': basket,
     }
     return render(request,'basketapp/basket.html', context)
@@ -23,7 +24,6 @@ def basket_add(request, pk):
 
     basket.quantity += 1
     basket.save()
-
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 

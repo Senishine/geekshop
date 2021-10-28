@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'basketapp',
 ]
 
+LOGIN_URL='/auth/login'
+
 AUTH_USER_MODEL = 'authapp.ShopUser'
 
 MIDDLEWARE = [

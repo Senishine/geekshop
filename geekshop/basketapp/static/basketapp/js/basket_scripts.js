@@ -1,5 +1,5 @@
 window.onload = function () {
-    $('.basket_list').on(types:'click', selector: 'input[type="number"]', data:function () {
+    $('.basket_list').on('click', 'input[type="number"]', function () {
         var t_href = event.target;
 
         $.ajax({

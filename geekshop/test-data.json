@@ -1,0 +1,15 @@
+{
+  "products": [
+    {
+      "category_id": "1",
+      "id": "",
+      "description": "Отличный стул",
+      "image": "",
+      "name": "Стул 1",
+      "price": "35463",
+      "quantity": "15",
+      "short_desc": "Отл стул"
+    }
+  ]
+}
+

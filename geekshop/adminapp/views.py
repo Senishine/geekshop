@@ -1,7 +1,6 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, reverse
-
-from adminapp.forms import ShopUserAdminEditForm
+from adminapp.forms import ShopUserAdminEditForm, ProductCategoryCreationForm
 from authapp.forms import ShopUserRegisterForm
 from authapp.models import ShopUser
 from mainapp.models import ProductCategory, Product
@@ -95,15 +94,56 @@ def categories(request):
 
 
 def category_create(request):
-    pass
+    title = 'категория/создание'
+
+    if request.method == 'POST':
+        category_form = ProductCategoryCreationForm(request.POST, request.FILES)
+        if category_form.is_valid():
+            category_form.save()
+            return HttpResponseRedirect(reverse('admin_staff:categories'))
+    else:
+        category_form = ProductCategoryCreationForm()
+
+    context = {
+        'title': title,
+        'category_form': category_form
+    }
+    return render(request, 'adminapp/category_update.html', context)
 
 
 def category_update(request, pk):
-    pass
+    title = 'категория/редактирование'
+    edit_category = get_object_or_404(ProductCategory, pk=pk)
+
+    if request.method == 'POST':
+        edit_form = ProductCategoryEditForm(request.POST, instance=edit_category)
+        if edit_form.is_valid():
+            edit_form.save()
+            return HttpResponseRedirect(reverse('admin_staff:category_update', args=[edit_category.pk]))
+    else:
+        edit_form = ProductCategoryEditForm(instance=edit_category)
+
+    context = {
+        'title': title,
+        'category_form': edit_form,
+    }
+    return render(request, 'adminapp/category_update.html', context)
 
 
 def category_delete(request, pk):
-    pass
+    title = 'категория/удаление'
+    category = get_object_or_404(ProductCategory, pk=pk)
+
+    if request.method == 'POST':
+        category.is_active = False
+        category.save()
+        return HttpResponseRedirect(reverse('admin_staff:categories'))
+
+    context = {
+        'title': title,
+        'category_to_delete': category
+    }
+    return render(request, 'adminapp/category_delete.html', context)
 
 
 def products(request, pk):

@@ -16,43 +16,42 @@
                         <thead>
                         <tr>
                             <th>Название категории</th>
-                            <th>Описание</th>
+                            <th>Товары</th>
                             <th>Активный</th>
-                            <th>Дата создания</th>
-                            <th>Дата изменения</th>
+                            <th>Редактировать</th>
                             <th>Удалить</th>
                         </tr>
                         </thead>
                         <tfoot>
                         <tr>
                             <th>Название</th>
-                            <th>Описание</th>
+                            <th>Товары</th>
                             <th>Активный</th>
-                            <th>Дата создания</th>
-                            <th>Дата изменения</th>
+                            <th>Редактировать</th>
                             <th>Удалить</th>
                         </tr>
                         </tfoot>
                         <tbody>
                         {% for category in objects %}
-                            <tr {% if not category.is_active %} style="opacity: 0.5;" {% endif %}>
-                                <td><a href="{% url 'admin_staff:category_update' category.id %}" style="color: dodgerblue">{{ category.name }}</a></td>
-                                <td>{{ category.description }}</td>
-                                <td class="text-center">
-                                    {% if category.is_active %}
-                                        <i class="fa fa-check-circle"></i>
-                                    {% else %}
-                                        <i class="fa fa-times-circle"></i>
-                                    {% endif %}
-                                </td>
-                                <td>{{ category.created }}</td>
-                                <td>{{ category.updated }}</td>
-                                <td>
-                                    <a {% if not category.is_active %} class="invisible" {% endif %} href="{% url 'admin_staff:category_delete' pk=category.id %}">
-                                        <i class="fa fa-times-circle"></i>
-                                    </a>
-                                </td>
-                            </tr>
+                        <tr {% if not category.is_active %} style="opacity: 0.5;" {% endif %}>
+                            <td>{{ category.name }}</td>
+                            <td><a href="{% url 'admin_staff:products' category.pk %}">Товары</a></td>
+                            <td class="text-center">
+                                {% if category.is_active %}
+                                <i class="fa fa-check-circle"></i>
+                                {% else %}
+                                <i class="fa fa-times-circle"></i>
+                                {% endif %}
+                            <td class="text-center">
+                                 <a href="{% url 'admin_staff:category_update' category.pk %}">Edit</a>
+                            </td>
+                            <td>
+                                <a {% if not category.is_active %} class="invisible" {% endif %}
+                                   href="{% url 'admin_staff:category_delete' pk=category.id %}">
+                                    <i class="fa fa-times-circle"></i>
+                                </a>
+                            </td>
+                        </tr>
                         {% endfor %}
                         </tbody>
                     </table>
@@ -60,7 +59,7 @@
             </div>
             <div class="card-footer">
                 <a href="{% url 'adminapp:category_create' %}">
-                    <button class="btn btn-success">Создать категорию</button>
+                <button class="btn btn-success">Создать категорию</button>
                 </a>
             </div>
         </div>

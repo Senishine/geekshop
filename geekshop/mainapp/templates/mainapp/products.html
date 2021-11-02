@@ -32,7 +32,7 @@
     <div class="details-products">
         <div class="details-slider">
             <div class="slider-product">
-                <img src="/media/{{ hot_product.image }}">
+                <img src="/media/{{ hot_product.image }}" style="width: 100%;">
             </div>
             <div class="slider-control">
                 <div class="block">
@@ -74,6 +74,24 @@
             </h2>
             {% endif %}
         </div>
+        <div class="paginator">
+            {% if products.has_previous %}
+                <a href="{% url 'products:page' category.pk products.previous_page_number %}">
+                    <
+                </a>
+            {% endif %}
+            <span class="current">
+                    страница {{ products.number }} из
+                    {{ products.paginator.num_pages }}
+                  </span>
+            {% if products.has_next %}
+                <a href="{% url 'products:page' category.pk products.next_page_number %}">
+                    >
+                </a>
+            {% endif %}
+        </div>
+    </div>
+
         <div class="category-products products">
 
         {% for product in products %}

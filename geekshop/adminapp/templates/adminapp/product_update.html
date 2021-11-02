@@ -4,7 +4,8 @@
 {% block content %}
     <form class="form-horizontal" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form }}
+        {{ product_form }}
       <button type="submit" class="btn btn-primary">Сохранить</button>
     </form>
 {% endblock %}
+

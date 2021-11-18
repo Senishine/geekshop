@@ -3,3 +3,4 @@ venv/
 *.pyc
 .idea
 *.sqlite3
+geekshop/vk.json

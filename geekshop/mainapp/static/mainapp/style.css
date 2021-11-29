@@ -17,7 +17,7 @@ html, body {
 }
 
 .container {
-	width: 1366px;
+	width: 1380px;
 	margin: 0 auto;
 	min-height: 100%;
 }
@@ -82,11 +82,11 @@ html, body {
 }
 .basket {
 	display: block;
-	width: 23px;
-	height: 23px;
+	width: 35px;
+	height: 35px;
 	background-image: url(img/basket.png);
 	position: absolute;
-	top: 63px;
+	top: 57px;
 	left: 1210px;
 }
 
@@ -543,7 +543,7 @@ html, body {
 
 .footer {
 	height: 384px;
-	width: 1169px;
+	width: 1370px;
 	background-color: #f7f7f7;
 	padding-left: 99px;
 	padding-right: 98px;
@@ -890,13 +890,13 @@ td:first-child {
 }
 
 .details-products {
-	padding-left: 98px;
+	padding-left: 55px;
 	padding-right: 98px;
 	margin-top: 98px;
 	height: 651px;
 }
 .details-slider {
-	width: 570px;
+	width: 435px;
 	float: left;
 	margin-right: 30px;
 }
@@ -907,8 +907,7 @@ td:first-child {
 .slider-control {
 	width: 420px;
 	height: 70px;
-	margin: 11px auto 0px;
-	padding-left: 150px
+	padding-left: 100px
 }
 .slider-control .block {
 	height: 70px;
@@ -1016,10 +1015,11 @@ td:first-child {
 	margin-right: 0;
 }
 .related .title h2 {
-	margin-top: 245px;
+	margin-top: -34px;
+	margin-left: 0 px
 }
 .related .title .explore {
-	margin-top: 262px;
+	margin-top: -34px;
 }
 .related-products {
 	margin-bottom: 120px;

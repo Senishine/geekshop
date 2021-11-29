@@ -6,22 +6,26 @@
        <td>{{ item.updated|date:"Y-m-d H:i:s" }}</td>
        <td>{{ item.get_status_display }}</td>
        <td>
-           <a href="{% url 'ordersapp:order_read' item.pk %}">
-               посмотреть
-           </a>
-       </td>
-       <td>
+           <button type="button" class="btn btn-light">
+               <a href="{% url 'ordersapp:order_read' item.pk %}">
+                   посмотреть
+               </a>
+           </button>
+
            {% if item.status == 'FM' %}
-             <a href="{% url 'ordersapp:order_update' item.pk %}">
-               редактировать
-             </a>
+           <button type="button" class="btn btn-light">
+                 <a href="{% url 'ordersapp:order_update' item.pk %}">
+                   редактировать
+                 </a>
+           </button>
            {% endif %}
-       </td>
-       <td>
+
            {% if item.status == 'FM' %}
-             <a href="{% url 'ordersapp:order_delete' item.pk %}">
-                 удалить
-             </a>
+           <button type="button" class="btn btn-light">
+                 <a href="{% url 'ordersapp:order_delete' item.pk %}">
+                     удалить
+                 </a>
+           </button>
            {% endif %}
        </td>
    </tr>

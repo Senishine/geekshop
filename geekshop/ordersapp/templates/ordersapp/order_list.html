@@ -3,7 +3,6 @@
 
 {% block css %}
 
-
 {% endblock %}
 
 {% block content %}
@@ -23,10 +22,11 @@
    <table class="table orders_list">
        <thead>
          <tr>
-           <th>ID</th>
-           <th>Создан</th>
-           <th>Обновлен</th>
-           <th>Статус</th>
+           <th scope="col">ID</th>
+           <th scope="col">Создан</th>
+           <th scope="col">Обновлен</th>
+           <th scope="col">Статус</th>
+           <th scope="col">Действия с заказом</th>
          </tr>
        </thead>
        <tbody class=''>
@@ -41,7 +41,7 @@
    </button>
    <button class="btn btn-default btn-round">
        <a href="{% url 'ordersapp:order_create' %}">
-           новый
+           новый заказ
        </a>
    </button>
 {% endblock %}

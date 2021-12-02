@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
 from django.shortcuts import render, HttpResponseRedirect
 from django.contrib import auth
@@ -59,7 +60,7 @@ def register(request):
     context = {'title': title, 'register_form': register_form}
     return render(request, 'authapp/register.html', context)
 
-
+@login_required
 @transaction.atomic
 def edit(request):
     title = 'редактирование'

@@ -16,7 +16,7 @@ def get_basket(user):
 
 
 def get_hot_product():
-    products = Product.objects.all()
+    products = Product.objects.all().select_related('category')
     return random.sample(list(products), 1)[0]
 
 

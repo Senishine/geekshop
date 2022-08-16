@@ -17,7 +17,7 @@ html, body {
 }
 
 .container {
-	width: 1366px;
+	width: 1380px;
 	margin: 0 auto;
 	min-height: 100%;
 }
@@ -543,7 +543,7 @@ html, body {
 
 .footer {
 	height: 384px;
-	width: 1169px;
+	width: 1370px;
 	background-color: #f7f7f7;
 	padding-left: 99px;
 	padding-right: 98px;
@@ -712,7 +712,7 @@ td:first-child {
 }
 
 .location {
-	padding: 0px 97px;
+	padding: 0px 0px;
 }
 .location-1 {
 	height: 368px;
@@ -890,13 +890,13 @@ td:first-child {
 }
 
 .details-products {
-	padding-left: 98px;
+	padding-left: 55px;
 	padding-right: 98px;
 	margin-top: 98px;
 	height: 651px; 
 }
 .details-slider {
-	width: 570px;
+	width: 470px;
 	float: left;
 	margin-right: 30px;
 }

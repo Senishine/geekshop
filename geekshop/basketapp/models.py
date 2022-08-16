@@ -24,6 +24,8 @@ class Basket(models.Model):
         auto_now_add=True
     )
 
+    is_active = models.BooleanField(verbose_name='активна', default=True)
+
     @property
     def product_cost(self):
         return self.product.price * self.quantity
@@ -31,7 +33,7 @@ class Basket(models.Model):
     @property
     def total_quantity(self):
         _items = Basket.objects.filter(user=self.user)
-        _total_quantity = sum(list(map(lambda  x: x.quantity, _items)))
+        _total_quantity = sum(list(map(lambda x: x.quantity, _items)))
         return _total_quantity
 
     @property
